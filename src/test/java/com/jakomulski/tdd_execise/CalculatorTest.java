@@ -1,7 +1,5 @@
 package com.jakomulski.tdd_execise;
 
-
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -36,7 +34,7 @@ public class CalculatorTest {
 	}
 
 	@Test
-	public void shouldASingleNumberReturnsTheValue(){
+	public void shouldASingleNumberReturnsTheValue() {
 		assertEquals(target.calculate("12"), 12);
 		assertEquals(target.calculate("354"), 354);
 	}
