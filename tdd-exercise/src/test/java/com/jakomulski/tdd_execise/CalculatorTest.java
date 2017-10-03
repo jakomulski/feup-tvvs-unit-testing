@@ -25,7 +25,7 @@ public class CalculatorTest {
 
 	@BeforeEach
 	public void setUp() {
-		target = new Calculator();
+		target = new CalculatorImpl();
 	}
 
 	@Test
