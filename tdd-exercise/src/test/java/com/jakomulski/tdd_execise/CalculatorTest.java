@@ -11,11 +11,12 @@ import org.junit.runner.RunWith;
 /*
 1-An empty string returns zero
 2-A single number returns the value
-3-Two numbers, comma delimited, returns the sum
-4-Two numbers, newline delimited, returns the sum
-5-Three numbers, delimited either way, returns the sum
+3-Two numbers, comma delimited, returns the product
+4-Two numbers, newline delimited, returns the product
+5-Three numbers, delimited either way, returns the product
 6-Negative numbers throw an exception
 7-Numbers greater than 1000 are ignored
+
 */
 
 @RunWith(JUnitPlatform.class)
@@ -40,22 +41,22 @@ public class CalculatorTest {
 	}
 
 	@Test
-	public void shouldTwoNumbersCommaDelimitedReturnsTheSum() {
-		assertEquals(target.calculate("12,32"), 44);
-		assertEquals(target.calculate("121,3"), 124);
+	public void shouldTwoNumbersCommaDelimitedReturnsTheProduct() {
+		assertEquals(target.calculate("10,10"), 100);
+		assertEquals(target.calculate("12,2"), 24);
 	}
 
 	@Test
-	public void shouldTwoNumbersNewlineDelimitedReturnsTheSum() {
-		assertEquals(target.calculate("12\n32"), 44);
-		assertEquals(target.calculate("121\n3"), 124);
+	public void shouldTwoNumbersNewlineDelimitedReturnsTheProduct() {
+		assertEquals(target.calculate("12\n12"), 144);
+		assertEquals(target.calculate("20\n3"), 60);
 	}
 
 	@Test
-	public void shouldThreeNumbersDelimitedReturnsTheSum() {
-		assertEquals(target.calculate("12\n32,2"), 46);
-		assertEquals(target.calculate("121,3,100"), 224);
-		assertEquals(target.calculate("121\n3\n1"), 125);
+	public void shouldThreeNumbersDelimitedReturnsTheProduct() {
+		assertEquals(target.calculate("12\n12,2"), 288);
+		assertEquals(target.calculate("2,3,100"), 600);
+		assertEquals(target.calculate("5\n5\n1"), 25);
 	}
 
 	@Test
@@ -66,8 +67,8 @@ public class CalculatorTest {
 
 	@Test
 	public void shouldNumbersGreaterThan1000BeIgnored() {
-		assertEquals(target.calculate("12\n32,2000"), 44);
-		assertEquals(target.calculate("121,3,1001"), 124);
-		assertEquals(target.calculate("121\n3\n1000"), 1124);
+		assertEquals(target.calculate("12\n2,2000"), 24);
+		assertEquals(target.calculate("2,3,1001"), 6);
+		assertEquals(target.calculate("2\n2\n1000"), 4000);
 	}
 }
