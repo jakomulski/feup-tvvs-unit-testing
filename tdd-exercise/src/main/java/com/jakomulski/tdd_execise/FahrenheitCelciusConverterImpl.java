@@ -9,8 +9,6 @@ public class FahrenheitCelciusConverterImpl implements FahrenheitCelciusConverte
 
 	@Override
 	public int toCelcius(int i) {
-		return ((i-32)*5)/9;
+		return (i-32)*5/9;
 	}
-
-
 }
